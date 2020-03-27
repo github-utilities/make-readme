@@ -1,0 +1,93 @@
+This repository encurages the use of Git Submodules to track dependencies
+
+
+**Bash Variables**
+
+
+```Bash
+_module_name='{{ repository }}'
+_module_https_url="https://github.com/{{ organization }}/{{ repository }}.git"
+_module_base_dir='_layouts/modules'
+_module_path="${_module_base_dir}/${_module_name}"
+```
+
+
+**Bash Submodule Commands**
+
+
+```Bash
+cd "<your-git-project-path>"
+
+git checkout gh-pages
+mkdir -vp "${_module_base_dir}"
+
+git submodule add\
+ -b master --name "${_module_name}"\
+ "${_module_https_url}" "${_module_path}"
+```
+
+
+### Your ReadMe File
+[heading__your_readme_file]:
+  #your-readme-file
+  "&#x1F4DD; Suggested additions for your ReadMe.md file so everyone has a good time with submodules"
+
+
+Suggested additions for your _`ReadMe.md`_ file so everyone has a good time with submodules
+
+
+```MarkDown
+Clone with the following to avoid incomplete downloads
+
+
+    git clone --recurse-submodules <url-for-your-project>
+
+
+Update/upgrade submodules via
+
+
+    git submodule update --init --merge --recursive
+```
+
+
+### Utilize {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}
+[heading__utilize]:
+  #utilize-{{#stripForID}}{{ repository }}{{/stripForID}}
+  "&#x1F578; How to make use of this submodule within another project"
+
+
+### Commit and Push
+[heading__commit_and_push]:
+  #commit-and-push
+  "&#x1F4BE; It may be just this easy..."
+
+
+```Bash
+git add .gitmodules
+git add "${_module_path}"
+
+
+## Add any changed files too
+
+
+git commit -F- <<'EOF'
+:heavy_plus_sign: Adds `{{ organization }}/{{ repository }}#1` submodule
+
+
+
+**Additions**
+
+
+- `.gitmodules`, tracks submodules AKA Git within Git _fanciness_
+
+- `README.md`, updates installation and updating guidance
+
+- `_modules_/{{ repository }}`, {{ description }}
+EOF
+
+
+git push origin gh-pages
+```
+
+
+**:tada: Excellent :tada:** your site is now ready to begin unitizing code from this repository!

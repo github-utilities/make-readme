@@ -1,0 +1,185 @@
+# {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}
+[heading__top]:
+  #{{#stripForID}}{{ repository }}{{/stripForID}}
+  "{{ description }}"
+
+
+{{ description }}
+
+{{#include_shields_io}}
+{{#stripNewLines}}
+##
+ [![Byte size of {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}][badge__master__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__source_code]][{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master__source_code]
+
+ [![Open Issues][badge__issues__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]][issues__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]
+
+ [![Open Pull Requests][badge__pull_requests__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]][pull_requests__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]
+
+ [![Latest commits][badge__commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master]][commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master]
+
+ {{#gh_pages}}[![{{ repository }} Demos][badge__gh_pages__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]][gh_pages__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]{{/gh_pages}}
+{{/stripNewLines}}
+{{/include_shields_io}}
+
+
+------
+
+
+- [Top of Document][heading__top]
+
+- [:zap: Quick Start][heading__quick_start]
+
+{{#is_submodule}}
+  - [:memo: Edit Your ReadMe File][heading__your_readme_file]
+  - [&#x1F578; Utilize {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}][heading__utilize]
+  - [:floppy_disk: Commit and Push][heading__commit_and_push]
+{{/is_submodule}}
+
+{{#include_notes}}
+- [&#x1F5D2; Notes][heading__notes]
+{{/include_notes}}
+
+- [:card_index: Attribution][heading__attribution]
+
+- [:balance_scale: Licensing][heading__license]
+
+
+------
+
+
+
+## Quick Start
+[heading__quick_start]:
+  #quick-start
+  "&#9889; Perhaps as easy as one, 2.0,..."
+
+
+{{! if is_submodule == true }}
+{{#is_submodule}}
+{{> quick_start_is_submodule.md}}
+{{/is_submodule}}
+{{! else if is_submodule == false && utilizes_submodules == true }}
+{{^is_submodule}}
+{{#utilizes_submodules}}
+{{> quick_start_utilizes_submodules.md}}
+{{/utilizes_submodules}}
+{{/is_submodule}}
+{{! else if is_submodule == false && utilizes_submodules == false }}
+{{^is_submodule}}
+{{^utilizes_submodules}}
+{{> quick_start_clone.md}}
+{{/utilizes_submodules}}
+{{/is_submodule}}
+
+{{#include_notes}}
+{{> notes.md}}
+{{/include_notes}}
+
+
+## Attribution
+[heading__attribution]:
+  #attribution
+  "&#x1F4C7; Resources that where helpful in building this project so far."
+
+
+- [GitHub -- `github-utilities/make-readme`](https://github.com/github-utilities/make-readme)
+
+
+___
+
+
+{{! if license is _truthy_ }}
+{{#license}}
+## License
+[heading__license]:
+  #license
+  "&#x2696; Legal side of Open Source"
+
+
+```
+{{{ includeLicense }}}
+```
+
+
+For further details review full length version of [{{ license }}][branch__current__license] License.
+{{/license}}
+{{! else if license is _falsy_ }}
+{{^license}}
+## License
+[heading__license]:
+  #license
+  "&#x2696; All rights reserved"
+
+
+```
+All rights reserved.
+```
+
+
+For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
+{{/license}}
+
+
+{{#license}}
+
+[branch__current__license]:
+  /LICENSE
+  "&#x2696; Full length version of {{ license }} License"
+
+{{/license}}
+
+[badge__commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master]:
+  https://img.shields.io/github/last-commit/{{ organization }}/{{ repository }}/master.svg
+
+[commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master]:
+  https://github.com/{{ organization }}/{{ repository }}/commits/master
+  "&#x1F4DD; History of changes on this branch"
+
+
+[{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__community]:
+  https://github.com/{{ organization }}/{{ repository }}/community
+  "&#x1F331; Dedicated to functioning code"
+
+{{! if gh_pages is _truthy_ }}
+{{#gh_pages}}
+[{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__gh_pages]:
+  https://github.com/{{ organization }}/{{ repository }}/tree/{{ gh_pages.branch }}
+  "Source code examples hosted thanks to GitHub Pages!"
+
+{{#include_shields_io}}
+[badge__gh_pages__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]:
+  https://img.shields.io/website/{{#stripNewLines}}
+{{#gh_pages.url}}{{ gh_pages.url }}{{/gh_pages.url}}
+{{^gh_pages.url}}https/{{ organization }}.github.io/{{ repository }}/index.html{{/gh_pages.url}}
+.svg?down_color=darkorange&down_message=Offline&label=Demo&logo=Demo%20Site&up_color=success&up_message=Online
+{{/stripNewLines}}
+{{/include_shields_io}}
+
+
+[gh_pages__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]:
+  {{#gh_pages.url}}{{ gh_pages.url }}{{/gh_pages.url}}{{^gh_pages.url}}https/{{ organization }}.github.io/{{ repository }}/index.html{{/gh_pages.url}}
+  "&#x1F52C; Check the example collection tests"
+{{/gh_pages}}
+
+[issues__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]:
+  https://github.com/{{ organization }}/{{ repository }}/issues
+  "&#x2622; Search for and _bump_ existing issues or open new issues for project maintainer to address."
+
+[pull_requests__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]:
+  https://github.com/{{ organization }}/{{ repository }}/pulls
+  "&#x1F3D7; Pull Request friendly, though please check the Community guidelines"
+
+[{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master__source_code]:
+  https://github.com/{{ organization }}/{{ repository }}/
+  "&#x2328; Project source!"
+
+{{#include_shields_io}}
+[badge__issues__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]:
+  https://img.shields.io/github/issues/{{ organization }}/{{ repository }}.svg
+
+[badge__pull_requests__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]:
+  https://img.shields.io/github/issues-pr/{{ organization }}/{{ repository }}.svg
+
+[badge__master__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__source_code]:
+  https://img.shields.io/github/repo-size/{{ organization }}/{{ repository }}
+{{/include_shields_io}}

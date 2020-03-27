@@ -1,0 +1,32 @@
+{
+  "name": "make-readme",
+  "version": "0.0.1",
+  "description": "Makes new ReadMe file for GitHub repository",
+  "main": "index.js",
+  "scripts": {
+    "make-readme": "node js/index.js",
+    "ts-build": "tsc --build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/github-utilities/make-readme.git"
+  },
+  "keywords": [
+    "template"
+  ],
+  "author": "S0AndS0",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/github-utilities/make-readme/issues"
+  },
+  "homepage": "https://github.com/github-utilities/make-readme#readme",
+  "dependencies": {
+    "mustache": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/mustache": "^4.0.1",
+    "@types/node": "^13.7.7",
+    "typescript": "^3.8.3"
+  }
+}

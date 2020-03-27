@@ -1,0 +1,29 @@
+Clone this project...
+
+
+**Linux/MacOS**
+
+
+```Bash
+mkdir -vp ~/git/hub/{{ organization }}
+
+cd ~/git/hub/{{ organization }}
+
+git clone git@github.com:{{ organization }}/{{ repository }}.git
+```
+
+
+**Windows**
+
+
+```Batch
+set _organization_directory="%HOMEDRIVE%%HOMEPATH%\git\hub\{{ organization }}"
+
+if not exists %_organization_directory (
+  md %_organization_directory
+)
+
+CD /D %_organization_directory
+
+git clone git@github.com:{{ organization }}/{{ repository }}.git
+```

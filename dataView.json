@@ -1,0 +1,29 @@
+{
+  "gfm": true,
+  "email": "account@host.tld",
+  "author": "your-name",
+  "organization": "your-name__or__organization-name",
+  "repository": "repository-name",
+  "output_directory": "~/git/hub/github-utilities/make-readme/tests",
+  "description": "Quick statement on what this Repository aims to accomplish",
+  "is_submodule": false,
+  "utilizes_submodules": false,
+  "include_notes": false,
+  "include_shields_io": true,
+  "license": "AGPL-3.0",
+  "gh_pages": true,
+  "verbose": true,
+  "clobber": true,
+  "files": [
+    {
+      "in_path": ".mustache/.github/README.md.mst",
+      "out_path": ".github/README.md",
+      "partials": [
+        ".mustache/partials/readme/quick_start/clone.md.mst",
+        ".mustache/partials/readme/quick_start/is_submodule.md.mst",
+        ".mustache/partials/readme/quick_start/utilizes_submodules.md.mst",
+        ".mustache/partials/readme/notes.md.mst"
+      ]
+    }
+  ]
+}

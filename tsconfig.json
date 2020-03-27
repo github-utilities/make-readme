@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "lib": ["dom","es2017"],
+    "locale": "en-US",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "outDir": "js"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "ts/index.ts",
+  ]
+}
