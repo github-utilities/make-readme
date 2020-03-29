@@ -56,18 +56,18 @@
 
 {{! if is_submodule == true }}
 {{#is_submodule}}
-{{> quick_start_is_submodule.md}}
+{{> is_submodule.md}}
 {{/is_submodule}}
 {{! else if is_submodule == false && utilizes_submodules == true }}
 {{^is_submodule}}
 {{#utilizes_submodules}}
-{{> quick_start_utilizes_submodules.md}}
+{{> utilizes_submodules.md}}
 {{/utilizes_submodules}}
 {{/is_submodule}}
 {{! else if is_submodule == false && utilizes_submodules == false }}
 {{^is_submodule}}
 {{^utilizes_submodules}}
-{{> quick_start_clone.md}}
+{{> clone.md}}
 {{/utilizes_submodules}}
 {{/is_submodule}}
 
