@@ -1,0 +1,6 @@
+NodeJS dependencies may be installed via NPM...
+
+
+```Bash
+npm install
+```

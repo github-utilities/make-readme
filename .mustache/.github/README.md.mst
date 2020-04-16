@@ -1,7 +1,7 @@
 # {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}
 [heading__top]:
   #{{#stripForID}}{{ repository }}{{/stripForID}}
-  "{{ description }}"
+  "&#x2B06; {{ description }}"
 
 
 {{ description }}
@@ -25,15 +25,21 @@
 ------
 
 
-- [Top of Document][heading__top]
+- [:arrow_up: Top of Document][heading__top]
 
+{{#requirements}}
+- [:building_construction: Requirements][heading__requirements]
+{{/requirements}}
+
+{{#quick_start}}
 - [:zap: Quick Start][heading__quick_start]
 
-{{#is_submodule}}
+{{#quick_start.is_submodule}}
   - [:memo: Edit Your ReadMe File][heading__your_readme_file]
   - [&#x1F578; Utilize {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}][heading__utilize]
   - [:floppy_disk: Commit and Push][heading__commit_and_push]
-{{/is_submodule}}
+{{/quick_start.is_submodule}}
+{{/quick_start}}
 
 {{#include_notes}}
 - [&#x1F5D2; Notes][heading__notes]
@@ -46,30 +52,45 @@
 
 ------
 
+{{#requirements}}
+## Requirements
+[heading__requirements]:
+  #requirements
+  "&#x1F3D7; Prerequisites and/or dependencies that this project needs to function properly"
+
+{{!}}
+{{#requirements.utilizes_submodules}}
+{{> utilizes_submodules.md}}
+{{/requirements.utilizes_submodules}}
+{{!}}
+{{#requirements.utilizes_npm}}
+{{> utilizes_npm.md}}
+{{/requirements.utilizes_npm}}
+{{!}}
+{{#requirements.utilizes_pip}}
+{{> utilizes_pip.md}}
+{{/requirements.utilizes_pip}}
+___
+{{/requirements}}
 
 
+{{#quick_start}}
 ## Quick Start
 [heading__quick_start]:
   #quick-start
   "&#9889; Perhaps as easy as one, 2.0,..."
 
-
-{{! if is_submodule == true }}
-{{#is_submodule}}
+{{! if quick_start.is_submodule == true }}
+{{#quick_start.is_submodule}}
 {{> is_submodule.md}}
-{{/is_submodule}}
-{{! else if is_submodule == false && utilizes_submodules == true }}
-{{^is_submodule}}
-{{#utilizes_submodules}}
-{{> utilizes_submodules.md}}
-{{/utilizes_submodules}}
-{{/is_submodule}}
-{{! else if is_submodule == false && utilizes_submodules == false }}
-{{^is_submodule}}
-{{^utilizes_submodules}}
+{{/quick_start.is_submodule}}
+{{! else if quick_start.is_submodule == false && requirements.utilizes_submodules == false }}
+{{^quick_start.is_submodule}}
+{{^requirements.utilizes_submodules}}
 {{> clone.md}}
-{{/utilizes_submodules}}
-{{/is_submodule}}
+{{/requirements.utilizes_submodules}}
+{{/quick_start.is_submodule}}
+{{/quick_start}}
 
 {{#include_notes}}
 {{> notes.md}}

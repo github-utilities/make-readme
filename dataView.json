@@ -6,14 +6,18 @@
   "repository": "repository-name",
   "output_directory": "~/git/hub/github-utilities/make-readme/tests",
   "description": "Quick statement on what this Repository aims to accomplish",
-  "is_submodule": false,
-  "utilizes_submodules": false,
   "include_notes": false,
   "include_shields_io": true,
   "license": "AGPL-3.0",
   "gh_pages": true,
   "verbose": true,
-  "clobber": true,
+  "clobber": false,
+  "quick_start": {
+    "is_submodule": false,
+  },
+  "requirements": {
+    "utilizes_submodules": false,
+  },
   "files": [
     {
       "in_path": ".mustache/.github/README.md.mst",
@@ -21,7 +25,9 @@
       "partials": [
         ".mustache/partials/readme/quick_start/clone.md.mst",
         ".mustache/partials/readme/quick_start/is_submodule.md.mst",
-        ".mustache/partials/readme/quick_start/utilizes_submodules.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_npm.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_pip.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_submodules.md.mst",
         ".mustache/partials/readme/notes.md.mst"
       ]
     }
