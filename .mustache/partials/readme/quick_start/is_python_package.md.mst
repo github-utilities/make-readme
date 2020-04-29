@@ -1,0 +1,51 @@
+Example of running as command-line utility...
+
+```Bash
+./{{ repository }}.py --help
+```
+
+
+------
+
+
+Example of inheriting and modifying a class from {{ repository }}...
+
+
+```Python
+#!/usr/bin/env python
+
+
+from {{ repository }} import {{ repository }}
+
+
+class Customized_{{ repository }}({{ repository }}):
+    """
+    Customizes {{ repository }} class with additional initialization parameters
+    """
+
+    def __init__(self, custom_arg = None, **kwargs):
+        """
+        Adds `custom_arg` to initialization of parent {{ repository }} class
+        """
+        super(Customized_{{ repository }}, self).__init__(**kwargs)
+        self.custom_arg = custom_arg
+
+    def main(self, **kwargs):
+        """
+        Prints `custom_arg` and returns results from parent `main()` method
+        """
+        original_main_results = super(Customized_{{ repository }}, self).main(**kwargs)
+
+        print(original_main_results)
+        print("self.custom_arg -> {}".format(self.custom_arg))
+
+        return original_main_results
+
+
+if __main__ == '__name__':
+    """
+    Code that is run if this file is executed as a script instead of imported
+    """
+    customized = Customized_{{ repository }}(custom_arg = 'SPAM')
+    customized.main()
+```

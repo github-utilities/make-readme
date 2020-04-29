@@ -1,0 +1,1 @@
+Access to GitHub Actions if using on GitHub, or manually assigning environment variables prior to running `npm test`.

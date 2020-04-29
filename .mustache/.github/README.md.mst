@@ -22,6 +22,7 @@
 {{/include_shields_io}}
 
 
+
 ------
 
 
@@ -36,9 +37,9 @@
 
 {{#quick_start.is_submodule}}
   - [:memo: Edit Your ReadMe File][heading__your_readme_file]
-  - [&#x1F578; Utilize {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}][heading__utilize]
   - [:floppy_disk: Commit and Push][heading__commit_and_push]
 {{/quick_start.is_submodule}}
+  - [&#x1F9F0; Usage][heading__usage]
 {{/quick_start}}
 
 {{#include_notes}}
@@ -52,16 +53,23 @@
 
 ------
 
+
+
 {{#requirements}}
 ## Requirements
 [heading__requirements]:
   #requirements
   "&#x1F3D7; Prerequisites and/or dependencies that this project needs to function properly"
 
+
 {{!}}
-{{#requirements.utilizes_submodules}}
-{{> utilizes_submodules.md}}
-{{/requirements.utilizes_submodules}}
+{{#requirements.utilizes_awk}}
+{{> utilizes_awk.md}}
+{{/requirements.utilizes_awk}}
+{{!}}
+{{#requirements.utilizes_github_actions}}
+{{> utilizes_github_actions.md}}
+{{/requirements.utilizes_github_actions}}
 {{!}}
 {{#requirements.utilizes_npm}}
 {{> utilizes_npm.md}}
@@ -70,6 +78,11 @@
 {{#requirements.utilizes_pip}}
 {{> utilizes_pip.md}}
 {{/requirements.utilizes_pip}}
+{{!}}
+{{#requirements.utilizes_submodules}}
+{{> utilizes_submodules.md}}
+{{/requirements.utilizes_submodules}}
+
 ___
 {{/requirements}}
 
@@ -80,20 +93,62 @@ ___
   #quick-start
   "&#9889; Perhaps as easy as one, 2.0,..."
 
+
+{{^quick_start.is_submodule}}
+{{! if quick_start.is_github_action != && requirements.utilizes_submodules != true }}
+{{^quick_start.is_github_action}}
+{{^requirements.utilizes_submodules}}
+{{> clone.md}}
+
+------
+{{/requirements.utilizes_submodules}}
+{{/quick_start.is_github_action}}
+{{/quick_start.is_submodule}}
 {{! if quick_start.is_submodule == true }}
 {{#quick_start.is_submodule}}
 {{> is_submodule.md}}
+
+------
 {{/quick_start.is_submodule}}
-{{! else if quick_start.is_submodule == false && requirements.utilizes_submodules == false }}
-{{^quick_start.is_submodule}}
-{{^requirements.utilizes_submodules}}
-{{> clone.md}}
-{{/requirements.utilizes_submodules}}
-{{/quick_start.is_submodule}}
+
+
+### Usage
+[heading__usage]:
+  #usage
+  "&#x1F9F0;"
+
+
+{{! if quick_start.is_awk_script == true }}
+{{#quick_start.is_awk_script}}
+{{> is_awk_script.md}}
+
+------
+{{/quick_start.is_awk_script}}
+{{! if quick_start.is_github_action == true }}
+{{#quick_start.is_github_action}}
+{{> is_github_action.md}}
+
+------
+{{/quick_start.is_github_action}}
+{{! if quick_start.is_node_package == true }}
+{{#quick_start.is_node_package}}
+{{> is_node_package.md}}
+
+------
+{{/quick_start.is_node_package}}
+{{! if quick_start.is_python_package == true }}
+{{#quick_start.is_python_package}}
+{{> is_python_package.md}}
+{{/quick_start.is_python_package}}
+
+___
 {{/quick_start}}
+
 
 {{#include_notes}}
 {{> notes.md}}
+
+___
 {{/include_notes}}
 
 
@@ -178,7 +233,7 @@ For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
 
 
 [gh_pages__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]:
-  {{#gh_pages.url}}{{ gh_pages.url }}{{/gh_pages.url}}{{^gh_pages.url}}https/{{ organization }}.github.io/{{ repository }}/index.html{{/gh_pages.url}}
+  {{#gh_pages.url}}{{ gh_pages.url }}{{/gh_pages.url}}{{^gh_pages.url}}https://{{ organization }}.github.io/{{ repository }}/index.html{{/gh_pages.url}}
   "&#x1F52C; Check the example collection tests"
 {{/gh_pages}}
 

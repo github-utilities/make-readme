@@ -1,0 +1,37 @@
+Reference the code of this repository within your own `workflow`...
+
+
+```YAML
+on:
+  schedule:
+    - cron: '* 23 * * *'
+
+
+jobs:
+  submodule-update:
+    runs-on: ubuntu-latest
+      - name: Checkout source branch for building Pages
+        uses: actions/checkout@v1
+        with:
+          ref: master
+          fetch-depth: 10
+
+      - name: Attempt submodule updates
+        id: submodule-update
+        with: gha-utilities/submodule-update@v0.0.1
+          message: Updates Git Submodules
+          options: '--depth 10 --init --merge --recursive --remote'
+
+      - name: Commit changes
+        if: outputs.submodule-update.updated_hashes && success()
+        with: gha-utilities/workspace-commit@v0.0.3
+          message: Commits Git Submodule updates
+          all: true
+
+      - name: Push changes
+        if: outputs.submodule-update.updated_hashes && success()
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+```

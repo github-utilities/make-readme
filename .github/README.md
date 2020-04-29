@@ -453,6 +453,8 @@ Resources that where helpful in building this project so far
 
 - [GitHub -- `jsdoc2md/jsdoc-to-markdown`](https://github.com/jsdoc2md/jsdoc-to-markdown)
 
+- [GitHub -- `janl/mustache.js#357` -- how to print literal `{` in front of mustache variable?](https://github.com/janl/mustache.js/issues/357#issuecomment-35220756)
+
 
 ___
 

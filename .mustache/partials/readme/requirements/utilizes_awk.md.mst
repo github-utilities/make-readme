@@ -1,0 +1,6 @@
+Awk, GAwk, or MAwk must be installed to make use of scripts within this repository, for Debian based Linux distributions that'd look similar to...
+
+
+```Bash
+sudo apt-get install gawk
+```

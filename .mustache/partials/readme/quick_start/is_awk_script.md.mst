@@ -1,0 +1,14 @@
+Linux based distributions with MAwk, GAwk, and/or Awk installed generally may run Awk scripts directly, eg...
+
+
+```Bash
+script_name.awk --param=value input_file.ext
+```
+
+
+... however, some systems do not have the Awk executable linked to `/usr/bin/awk` file path, in such cases Awk scripts must be invoked via...
+
+
+```Bash
+awk -f script_name.awk --param=value input_file.ext
+```

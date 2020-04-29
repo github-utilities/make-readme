@@ -1,7 +1,7 @@
 Python based dependencies may be installed via one of the following methods...
 
 
-- Scopped within current user...
+- Scoped within current user...
 
 
 ```Bash
@@ -9,7 +9,7 @@ pip install --user -r requirements.txt
 ```
 
 
-- Scopped with a _Virtual Environment_ local to the directory of this project...
+- Scoped with a _Virtual Environment_ local to the directory of this project...
 
 
 ```Bash

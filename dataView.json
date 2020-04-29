@@ -6,17 +6,25 @@
   "repository": "repository-name",
   "output_directory": "~/git/hub/github-utilities/make-readme/tests",
   "description": "Quick statement on what this Repository aims to accomplish",
-  "include_notes": false,
+  "include_notes": true,
   "include_shields_io": true,
   "license": "AGPL-3.0",
-  "gh_pages": true,
+  "gh_pages": false,
   "verbose": true,
   "clobber": false,
   "quick_start": {
-    "is_submodule": false,
+    "is_awk_script": false,
+    "is_github_action": false,
+    "is_node_package": false,
+    "is_python_package": false,
+    "is_submodule": false
   },
   "requirements": {
-    "utilizes_submodules": false,
+    "utilizes_awk": false,
+    "utilizes_npm": false,
+    "utilizes_github_actions": false,
+    "utilizes_pip": false,
+    "utilizes_submodules": false
   },
   "files": [
     {
@@ -24,7 +32,13 @@
       "out_path": ".github/README.md",
       "partials": [
         ".mustache/partials/readme/quick_start/clone.md.mst",
+        ".mustache/partials/readme/quick_start/is_awk_script.md.mst",
+        ".mustache/partials/readme/quick_start/is_node_package.md.mst",
+        ".mustache/partials/readme/quick_start/is_github_action.md.mst",
+        ".mustache/partials/readme/quick_start/is_python_package.md.mst",
         ".mustache/partials/readme/quick_start/is_submodule.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_awk.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_github_actions.md.mst",
         ".mustache/partials/readme/requirements/utilizes_npm.md.mst",
         ".mustache/partials/readme/requirements/utilizes_pip.md.mst",
         ".mustache/partials/readme/requirements/utilizes_submodules.md.mst",

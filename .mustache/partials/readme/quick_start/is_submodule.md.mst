@@ -1,4 +1,4 @@
-This repository encurages the use of Git Submodules to track dependencies
+This repository encourages the use of Git Submodules to track dependencies
 
 
 **Bash Variables**
@@ -50,12 +50,6 @@ Update/upgrade submodules via
 ```
 
 
-### Utilize {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}
-[heading__utilize]:
-  #utilize-{{#stripForID}}{{ repository }}{{/stripForID}}
-  "&#x1F578; How to make use of this submodule within another project"
-
-
 ### Commit and Push
 [heading__commit_and_push]:
   #commit-and-push
@@ -90,4 +84,4 @@ git push origin gh-pages
 ```
 
 
-**:tada: Excellent :tada:** your site is now ready to begin unitizing code from this repository!
+**:tada: Excellent :tada:** your project is now ready to begin unitizing code from this repository!
