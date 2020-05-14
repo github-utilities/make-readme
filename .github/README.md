@@ -447,6 +447,8 @@ Resources that where helpful in building this project so far
 
 - [StackOverflow -- How to define function return type of a custom object literal?](https://stackoverflow.com/questions/37342835)
 
+- [StackOverflow -- Regex to match a string only if a string does not exist](https://stackoverflow.com/questions/13626197/)
+
 - [JSDoc -- Configuring JSDoc](https://jsdoc.app/about-configuring-jsdoc.html)
 
 - [JSDoc -- Enabling the MarkDown Plugin](https://jsdoc.app/plugins-markdown.html#enabling-the-markdown-plugin)
