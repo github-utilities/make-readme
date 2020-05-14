@@ -538,6 +538,21 @@ class App {
   }
 
   /**
+   * Returns absolute path
+   * @param {string} input
+   * @returns {string}
+   */
+  absPath(input: string): string {
+  if (input.indexOf('~/') === 0) {
+    return input.replace(/^~\//, Os.homedir());
+  }
+  return input.replace(
+    new RegExp(`^(?!${Path.sep})`),
+    `${__dirname}${Path.sep}`
+  );
+};
+
+  /**
    * Writes rendered files to directory configured by `View`
    * @throws {Error} when `clobber` is `false` and files would be overwritten
    * @example
@@ -555,7 +570,7 @@ class App {
 
         const rendered_mustache = Mustache.render(data.toString(), this.view, objectified_partials, tags);
 
-        const full_out_path = Path.join(this.output_directory, out_path).replace(/^~/, Os.homedir());
+        const full_out_path = Path.join(this.absPath(this.output_directory), out_path);
         this._makeDirectories(Path.dirname(full_out_path), this.view.verbose);
 
         if (File_System.existsSync(full_out_path) && !this.view.clobber) {
@@ -577,7 +592,7 @@ class App {
     if (this.view.license) {
       const src_path = Path.join(parentDir(__dirname), '.mustache', 'licenses', this.view.license, 'LICENSE');
 
-      const dest_path = Path.join(this.output_directory, 'LICENSE').replace(/^~/, Os.homedir());
+      const dest_path = Path.join(this.absPath(this.output_directory), 'LICENSE');
 
       if (File_System.existsSync(dest_path) && !this.view.clobber) {
         throw new Error(`clobber -> ${this.view.clobber} and file already exists at -> ${dest_path}`);
