@@ -543,14 +543,14 @@ class App {
    * @returns {string}
    */
   absPath(input: string): string {
-  if (input.indexOf('~/') === 0) {
-    return input.replace(/^~\//, Os.homedir());
-  }
-  return input.replace(
-    new RegExp(`^(?!${Path.sep})`),
-    `${__dirname}${Path.sep}`
-  );
-};
+    if (input.indexOf('~/') === 0) {
+      return input.replace(/^~\//, `${Os.homedir()}/`);
+    }
+    return input.replace(
+      new RegExp(`^(?!${Path.sep})`),
+      `${__dirname}${Path.sep}`
+    );
+  };
 
   /**
    * Writes rendered files to directory configured by `View`
