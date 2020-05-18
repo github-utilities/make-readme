@@ -353,7 +353,7 @@ const Helpers = {
                          .replace(/ +/g, '-')
                          .replace(/-/g, ' ')
                          .replace(/\b\w/g, l => l.toUpperCase());
-      };
+    };
 
     return renderCallback;
   },
@@ -436,7 +436,7 @@ class App {
    * const app = new App(View, Helpers);
    * ```
    */
-  constructor(view: any, helpers: Helpers|object) {
+  constructor(view: any, helpers: Helpers | object) {
     this.view = view;
 
     Object.keys(helpers).forEach((key) => {
@@ -513,14 +513,14 @@ class App {
    * {{> notes.md}}
    * ```
    */
-  _objectifyPartials(partials_paths: string[], verbose: boolean): {[key: string]: string} {
+  _objectifyPartials(partials_paths: string[], verbose: boolean): { [key: string]: string } {
     const objectified_partials = {};
     if (!partials_paths) {
       return objectified_partials;
     }
 
     partials_paths.forEach((partials_path) => {
-      const {name} = Path.parse(partials_path);
+      const { name } = Path.parse(partials_path);
 
       if (!!verbose) {
         console.log(`Reading ${name} from -> ${partials_path}`);
@@ -561,7 +561,7 @@ class App {
    * ```
    */
   renderFiles() {
-    this.view.files.forEach(({in_path, out_path, partials, tags}) => {
+    this.view.files.forEach(({ in_path, out_path, partials, tags }) => {
       const objectified_partials = this._objectifyPartials(partials, this.view.verbose);
       File_System.readFile(in_path, (err, data) => {
         if (err) {
@@ -577,7 +577,7 @@ class App {
           throw new Error(`clobber -> ${this.view.clobber} and file already exists at -> ${full_out_path}`);
         }
 
-        File_System.writeFile(full_out_path, rendered_mustache, {'encoding': 'utf8'}, (err) => {
+        File_System.writeFile(full_out_path, rendered_mustache, { 'encoding': 'utf8' }, (err) => {
           if (err) {
             throw err;
           }
