@@ -22,7 +22,7 @@ pipenv install -r requirements.txt
 > Note, review [Python Guide -- `virtualenvs`](https://docs.python-guide.org/dev/virtualenvs/) for more information on Python Virtual Environments.
 
 
-- Or scopped for the entire system...
+- Or scoped for the entire system...
 
 
 ```Bash
@@ -30,4 +30,4 @@ sudo pip install -r requirements.txt
 ```
 
 
-> Note, generally installing dependencies system-wide is not recomended.
+> Note, generally installing dependencies system-wide is not recommended.
