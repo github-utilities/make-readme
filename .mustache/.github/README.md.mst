@@ -241,6 +241,12 @@ For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
   https://github.com/{{ organization }}/{{ repository }}/issues
   "&#x2622; Search for and _bump_ existing issues or open new issues for project maintainer to address."
 
+{{#include_notes}}
+[{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__fork_it]:
+  https://github.com/{{ organization }}/{{ repository }}/
+  "&#x1F531; Fork it!"
+{{/include_notes}}
+
 [pull_requests__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]:
   https://github.com/{{ organization }}/{{ repository }}/pulls
   "&#x1F3D7; Pull Request friendly, though please check the Community guidelines"
