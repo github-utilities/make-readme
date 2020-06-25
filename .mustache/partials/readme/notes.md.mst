@@ -41,7 +41,7 @@ git push fork master
 ```
 
 
-> Note, the `-u` option may be used to set `fork` as the default remote, eg. _`git push fork master`_ however, this will also default the `fork` remote for pulling from too! Meaning that pulling updates from `origin` must be done explicitly, eg. _`git pull orgin master`_
+> Note, the `-u` option may be used to set `fork` as the default remote, eg. _`git push fork master`_ however, this will also default the `fork` remote for pulling from too! Meaning that pulling updates from `origin` must be done explicitly, eg. _`git pull origin master`_
 
 
 - Then on GitHub submit a Pull Request through the Web-UI, the URL syntax is _`https://github.com/<NAME>/<REPO>/pull/new/<BRANCH>`_
