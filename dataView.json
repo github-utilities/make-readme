@@ -23,6 +23,7 @@
     "utilizes_awk": false,
     "utilizes_npm": false,
     "utilizes_github_actions": false,
+    "utilizes_jekyll": false,
     "utilizes_pip": false,
     "utilizes_submodules": false
   },
