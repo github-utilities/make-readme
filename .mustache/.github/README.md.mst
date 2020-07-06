@@ -284,4 +284,4 @@ For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
 [github_docs__github_pages__jekyll]:
   https://docs.github.com/en/github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll
   "GitHub Pages documentation on Jekyll setup"
-{{#requirements.utilizes_jekyll}}
+{{/requirements.utilizes_jekyll}}
