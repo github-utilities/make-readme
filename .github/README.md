@@ -109,6 +109,7 @@ Modify the `dataView.json` file...
 ```JSON
 {
   "gfm": true,
+  "default_branch": "master",
   "email": "account@host.tld",
   "author": "your-name",
   "organization": "your-name__or__organization-name",
@@ -147,6 +148,7 @@ Modify the `dataView.json` file...
 ```JSON
 {
   "gfm": true,
+  "default_branch": "master",
   "email": "account@host.tld",
   "author": "GitHub-account-name",
   "organization": "organization-name",
@@ -346,6 +348,7 @@ SOFTWARE.
 ```JSON
 {
   "gfm": true,
+  "default_branch": "master",
   "email": "account@host.tld",
   "author": "your-name",
   "organization": "your-name__or__organization-name",
