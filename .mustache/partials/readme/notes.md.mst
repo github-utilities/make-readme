@@ -37,11 +37,11 @@ git commit -F- <<'EOF'
 EOF
 
 
-git push fork master
+git push fork {{ default_branch }}
 ```
 
 
-> Note, the `-u` option may be used to set `fork` as the default remote, eg. _`git push fork master`_ however, this will also default the `fork` remote for pulling from too! Meaning that pulling updates from `origin` must be done explicitly, eg. _`git pull origin master`_
+> Note, the `-u` option may be used to set `fork` as the default remote, eg. _`git push fork {{ default_branch }}`_ however, this will also default the `fork` remote for pulling from too! Meaning that pulling updates from `origin` must be done explicitly, eg. _`git pull origin {{ default_branch }}`_
 
 
 - Then on GitHub submit a Pull Request through the Web-UI, the URL syntax is _`https://github.com/<NAME>/<REPO>/pull/new/<BRANCH>`_

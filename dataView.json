@@ -1,5 +1,6 @@
 {
   "gfm": true,
+  "default_branch": "master",
   "email": "account@host.tld",
   "author": "your-name",
   "organization": "your-name__or__organization-name",

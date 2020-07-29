@@ -9,13 +9,13 @@
 {{#include_shields_io}}
 {{#stripNewLines}}
 ##
- [![Byte size of {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}][badge__master__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__source_code]][{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master__source_code]
+ [![Byte size of {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}][badge__{{ default_branch }}__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__source_code]][{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}__source_code]
 
  [![Open Issues][badge__issues__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]][issues__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]
 
  [![Open Pull Requests][badge__pull_requests__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]][pull_requests__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]
 
- [![Latest commits][badge__commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master]][commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master]
+ [![Latest commits][badge__commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}]][commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}]
 
  {{#gh_pages}}[![{{ repository }} Demos][badge__gh_pages__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]][gh_pages__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]{{/gh_pages}}
 {{/stripNewLines}}
@@ -209,11 +209,11 @@ For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
 
 {{/license}}
 
-[badge__commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master]:
-  https://img.shields.io/github/last-commit/{{ organization }}/{{ repository }}/master.svg
+[badge__commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}]:
+  https://img.shields.io/github/last-commit/{{ organization }}/{{ repository }}/{{ default_branch }}.svg
 
-[commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master]:
-  https://github.com/{{ organization }}/{{ repository }}/commits/master
+[commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}]:
+  https://github.com/{{ organization }}/{{ repository }}/commits/{{ default_branch }}
   "&#x1F4DD; History of changes on this branch"
 
 
@@ -256,7 +256,7 @@ For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
   https://github.com/{{ organization }}/{{ repository }}/pulls
   "&#x1F3D7; Pull Request friendly, though please check the Community guidelines"
 
-[{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__master__source_code]:
+[{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}__source_code]:
   https://github.com/{{ organization }}/{{ repository }}/
   "&#x2328; Project source!"
 
@@ -267,7 +267,7 @@ For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
 [badge__pull_requests__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]:
   https://img.shields.io/github/issues-pr/{{ organization }}/{{ repository }}.svg
 
-[badge__master__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__source_code]:
+[badge__{{ default_branch }}__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__source_code]:
   https://img.shields.io/github/repo-size/{{ organization }}/{{ repository }}
 {{/include_shields_io}}
 
