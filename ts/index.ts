@@ -108,8 +108,6 @@ interface Helpers {
   stripForID(): renderCallback;
   stripForHeading(): renderCallback;
   stripNewLines(): renderCallback;
-  stripForHeading(): renderCallback;
-  stripNewLines(): renderCallback;
   trimLeadingSpaces(): renderCallback;
   trimTrailingSpaces(): renderCallback;
   toTitleCase(): renderCallback;
@@ -149,6 +147,7 @@ const Helpers = {
    * ```Mustache
    * {{{ includeLicense }}}
    * ```
+   *
    * @example <caption>rendered output snip</caption>
    * ```MarkDown
    *     Quick statement on what this Repository aims to accomplish
@@ -201,6 +200,7 @@ const Helpers = {
    *   #{{#stripForID}}{{ repository }}{{/stripForID}}
    *   "{{ description }}"
    * ```
+   *
    * @example <caption>rendered output snip</caption>
    * ```MarkDown
    * # Repository Name
@@ -237,6 +237,7 @@ const Helpers = {
    *   https://github.com/{{ organization }}/{{ repository }}/commits/master
    *   "&#x1F4DD; History of changes on this branch"
    * ```
+   *
    * @example <caption>rendered output snip</caption>
    * ```MarkDown
    * [commits__repository_name__master]:
@@ -265,6 +266,7 @@ const Helpers = {
    *   .svg?down_color=darkorange&down_message=Offline&label=Demo&logo=Demo%20Site&up_color=success&up_message=Online
    *   {{/stripNewLines}}
    * ```
+   *
    * @example <caption>rendered output snip</caption>
    * ```MarkDown
    * [badge__gh_pages__repository_name]:
@@ -290,6 +292,7 @@ const Helpers = {
    *   Something to dedent
    * {{/ trimLeadingSpaces }}
    * ```
+   *
    * @example <caption>rendered output snip</caption>
    * ```MarkDown
    * Something to dedent
@@ -312,6 +315,7 @@ const Helpers = {
    * ```Mustache
    * {{# trimTrailingSpaces }}Something that once had trailing spaces   {{/ trimTrailingSpaces }}
    * ```
+   *
    * @example <caption>rendered output snip</caption>
    * ```MarkDown
    * Something that once had trailing spaces
@@ -337,6 +341,7 @@ const Helpers = {
    *   #{{#stripForID}}{{ repository }}{{/stripForID}}
    *   "{{ description }}"
    * ```
+   *
    * @example <caption>rendered output snip</caption>
    * ```MarkDown
    * # Repository Name
@@ -368,6 +373,7 @@ const Helpers = {
    * ```Mustache
    * {{# toLowerCase }}String Stripped of{{/ toLowerCase }} Capitalization
    * ```
+   *
    * @example <caption>rendered output snip</caption>
    * ```MarkDown
    * string stripped of Capitalization
@@ -391,6 +397,7 @@ const Helpers = {
    * ```Mustache
    * {{# renderPartialsPath }}quick_start/clone.md.mst{{/ renderPartialsPath }}
    * ```
+   *
    * @example <caption>rendered output snip</caption>
    * ```MarkDown
    * Clone this project...
