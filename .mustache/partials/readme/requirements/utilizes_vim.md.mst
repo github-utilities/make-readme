@@ -1,0 +1,21 @@
+This repository requires the [Vim][vim_home] text editor to be installed the source code is available on [GitHub -- `vim/vim`][vim__github], and most GNU Linux package managers are able to install Vim directly, eg...
+
+
+- Arch based Operating Systems
+
+
+```Bash
+sudo packman -Syy
+
+sudo packman -S vim
+```
+
+
+- Debian derived Distributions
+
+
+```Bash
+sudo apt-get update
+
+sudo apt-get install vim
+```

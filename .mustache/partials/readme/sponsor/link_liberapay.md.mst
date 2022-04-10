@@ -1,0 +1,6 @@
+[sponsor__shields_io__liberapay]:
+  https://img.shields.io/static/v1?logo=liberapay&label=Sponsor&message={{ organization }}
+
+[sponsor__link__liberapay]:
+  https://liberapay.com/{{ organization }}
+  "&#x1F4B1; Sponsor developments and projects that {{ organization }} maintains via Liberapay"

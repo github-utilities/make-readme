@@ -1,0 +1,10 @@
+This repository requires [Rust][rust_home] language/compiler to build from source
+
+
+As of last update to this ReadMe file, the recommended method of installing Rust is via the installer script...
+
+
+```Bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+

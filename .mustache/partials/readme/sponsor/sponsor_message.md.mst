@@ -1,0 +1,10 @@
+Thanks for even considering it!
+
+
+{{#sponsor.liberapay}}
+Via Liberapay you may <sub>[![sponsor__shields_io__liberapay]][sponsor__link__liberapay]</sub> on a repeating basis.
+{{/sponsor.liberapay}}
+
+
+Regardless of if you're able to financially support projects such as {{ repository }} that {{ organization }} maintains, please consider sharing projects that are useful with others, because one of the goals of maintaining Open Source repositories is to provide value to the community.
+
