@@ -1,6 +1,6 @@
 {
   "gfm": true,
-  "default_branch": "master",
+  "default_branch": "main",
   "email": "account@host.tld",
   "author": "your-name",
   "organization": "your-name__or__organization-name",
@@ -11,14 +11,24 @@
   "include_shields_io": true,
   "license": "AGPL-3.0",
   "gh_pages": false,
+  "travis_ci": false,
   "verbose": true,
   "clobber": false,
+  "github_actions": {
+    "workflow": "test",
+    "event": "push"
+  },
   "quick_start": {
     "is_awk_script": false,
     "is_github_action": false,
     "is_node_package": false,
     "is_python_package": false,
-    "is_submodule": false
+    "is_rust_library": false,
+    "is_solidity_library": false,
+    "is_submodule": false,
+    "is_vim_package": false,
+    "is_vim_plugin": true,
+    "is_vim_syntax": false
   },
   "requirements": {
     "utilizes_awk": false,
@@ -26,24 +36,45 @@
     "utilizes_github_actions": false,
     "utilizes_jekyll": false,
     "utilizes_pip": false,
-    "utilizes_submodules": false
+    "utilizes_rust": false,
+    "utilizes_submodules": false,
+    "utilizes_truffle": false,
+    "utilizes_vim": true
+  },
+  "contributing": {
+    "include_forking": true
+  },
+  "sponsor": {
+    "liberapay": true
   },
   "files": [
     {
       "in_path": ".mustache/.github/README.md.mst",
       "out_path": ".github/README.md",
       "partials": [
+        ".mustache/partials/readme/contributing/forking.md.mst",
         ".mustache/partials/readme/quick_start/clone.md.mst",
         ".mustache/partials/readme/quick_start/is_awk_script.md.mst",
         ".mustache/partials/readme/quick_start/is_node_package.md.mst",
         ".mustache/partials/readme/quick_start/is_github_action.md.mst",
         ".mustache/partials/readme/quick_start/is_python_package.md.mst",
+        ".mustache/partials/readme/quick_start/is_rust_library.md.mst",
+        ".mustache/partials/readme/quick_start/is_solidity_library.md.mst",
         ".mustache/partials/readme/quick_start/is_submodule.md.mst",
+        ".mustache/partials/readme/quick_start/is_vim_package.md.mst",
+        ".mustache/partials/readme/quick_start/is_vim_plugin.md.mst",
+        ".mustache/partials/readme/quick_start/is_vim_syntax.md.mst",
         ".mustache/partials/readme/requirements/utilizes_awk.md.mst",
         ".mustache/partials/readme/requirements/utilizes_github_actions.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_jekyll.md.mst",
         ".mustache/partials/readme/requirements/utilizes_npm.md.mst",
         ".mustache/partials/readme/requirements/utilizes_pip.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_rust.md.mst",
         ".mustache/partials/readme/requirements/utilizes_submodules.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_truffle.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_vim.md.mst",
+        ".mustache/partials/readme/sponsor/link_liberapay.md.mst",
+        ".mustache/partials/readme/sponsor/sponsor_message.md.mst",
         ".mustache/partials/readme/notes.md.mst"
       ]
     }

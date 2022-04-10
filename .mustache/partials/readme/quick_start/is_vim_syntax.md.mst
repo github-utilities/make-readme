@@ -1,0 +1,31 @@
+This repository is a Vim syntax plugin, and can be installed by cloning to your plugin directory, eg...
+
+
+```Bash
+mkdir ~/.vim/plugin
+cd ~/.vim/plugin
+git clone git@github.com:{{ organization }}/{{ repository }}.git
+```
+
+
+... then adding symbolic links for a given language...
+
+
+```Bash
+cd ~/.vim/plugin/{{ repository }}
+
+mkdir ~/.vim/after/syntax/<language>
+
+ln -s "${PWD}/after/syntax/<language>" "${HOME}/.vim/after/syntax/<language>"
+```
+
+
+> Note, for more complex syntax plugins a linker script may be available to automate installation, eg...
+
+
+```Bash
+cd ~/.vim/plugin/{{ repository }}
+
+./link-install.sh
+```
+

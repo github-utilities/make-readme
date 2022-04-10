@@ -1,0 +1,25 @@
+This repository is a Rust library, define it as a dependency within a project `Cargo.toml` file...
+
+
+**`Cargo.toml` (snip)**
+
+
+```toml
+[dependencies]
+{{#stripForHeading}}{{ repository }}{{/stripForHeading}} = "0.0.1"
+```
+
+
+> Check [Rust -- Doc -- Specifying Dependencies](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html) for details about defining dependencies.
+
+
+Then include within a source file via `use` statment...
+
+
+**`src/main.rs`**
+
+
+```Rust
+use {{#stripForHeading}}{{ repository }}{{/stripForHeading}};
+```
+

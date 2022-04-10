@@ -1,0 +1,31 @@
+This repository is a Vim package, intended to be utilized within Vim plugins.
+
+
+```Bash
+_package_type='opt'
+
+mkdir ~/.vim/pack/{{ organization }}/${_package_type}
+cd ~/.vim/pack/{{ organization }}/${_package_type}
+
+git clone git@github.com:{{ organization }}/{{ repository }}.git
+```
+
+
+Make use of code from this repository within your own plugin(s)
+
+
+```Vim
+#!/usr/bin/env vim
+
+
+if !exsists('*Package_Function_Name')
+  packadd {{ repository }}
+endif
+
+
+function! Your_Function()
+  let some_variable = Package_Function_Name()
+  echo l:some_variable
+endfunction
+```
+

@@ -1,0 +1,28 @@
+NPM and Truffle are recommended for importing and managing Library dependencies
+
+
+```Bash
+cd your_project
+
+npm install @{{ organization }}/{{ repository }}
+```
+
+
+> Note, source code will be located within the `node_modules/@{{ organization }}/{{ repository }}` directory of _`your_project`_ root
+
+
+Solidity contracts may then import code via similar syntax as shown
+
+
+```Solidity
+import "@{{ organization }}/{{ repository }}/contracts/{{ repository }}.sol";
+```
+
+
+> Note, above path is **not** relative (ie. there's no `./` preceding the file path) which causes Truffle to search the `node_modules` subs-directories
+
+
+Review the [Truffle -- Package Management via NPM][truffle__package_management_via_npm] documentation for more details.
+{{!
+  vim: filetype=mustache
+}}
