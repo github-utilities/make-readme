@@ -1,0 +1,10 @@
+{
+  "heading-depth": 2,
+  "example-lang": "none",
+  "no-gfm": false,
+  "separators": true,
+  "no-cache": true,
+  "files": [
+    "js/index.js"
+  ]
+}
