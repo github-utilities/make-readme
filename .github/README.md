@@ -10,7 +10,7 @@ Makes new ReadMe file for GitHub repository
 ## [![Byte size of make-readme][badge__master__make_readme__source_code]][make_readme__master__source_code] [![Open Issues][badge__issues__make_readme]][issues__make_readme] [![Open Pull Requests][badge__pull_requests__make_readme]][pull_requests__make_readme] [![Latest commits][badge__commits__make_readme__master]][commits__make_readme__master]
 
 
-------
+---
 
 
 #### Table of Contents
@@ -31,7 +31,7 @@ Makes new ReadMe file for GitHub repository
 - [&#x2696; License][heading__license]
 
 
-------
+---
 
 
 
@@ -258,7 +258,7 @@ git push hub master
 **:tada: Excellent :tada:** your repository is now finished unitizing the ReadMe file built from this repository!
 
 
-___
+______
 
 
 ## Notes
@@ -422,13 +422,13 @@ git push fork master
 `4` Open a Pull Request when your changes are ready.
 
 
-------
+---
 
 
 This project utilizes TypeScript to transpile and make stronger assertions of type safety with JavaScript related code, please direct such code edits to the `ts/index.ts` file then issue `npm ts-build` to re-build the `js/index.js` file.
 
 
-___
+______
 
 
 ## Attribution
@@ -461,7 +461,7 @@ Resources that where helpful in building this project so far
 - [GitHub -- `janl/mustache.js#357` -- how to print literal `{` in front of mustache variable?](https://github.com/janl/mustache.js/issues/357#issuecomment-35220756)
 
 
-___
+______
 
 
 ## License
