@@ -6,6 +6,9 @@
   "scripts": {
     "make-readme": "node js/index.js",
     "ts-build": "tsc --build",
+    "jsdoc-build": "jsdoc -c jsdoc-config.json",
+    "jsdoc2md-build": "node js/jsdoc2md.js",
+    "jsdoc2md-write": "node js/jsdoc2md.js > jsdoc2md/README.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +30,7 @@
   "devDependencies": {
     "@types/mustache": "^4.0.1",
     "@types/node": "^13.7.7",
+    "jsdoc-to-markdown": "^5.0.3",
     "typescript": "^3.8.3"
   }
 }
