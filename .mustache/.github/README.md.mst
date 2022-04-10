@@ -7,7 +7,7 @@
 {{ description }}
 
 {{#include_shields_io}}
-{{#stripNewLines}}
+{{#trimTrailingSpaces}}{{#stripNewLines}}
 ##
  [![Byte size of {{# toTitleCase }}{{ repository }}{{/ toTitleCase }}][badge__{{ default_branch }}__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__source_code]][{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}__source_code]
 
@@ -18,12 +18,18 @@
  [![Latest commits][badge__commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}]][commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}]
 
  {{#gh_pages}}[![{{ repository }} Demos][badge__gh_pages__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]][gh_pages__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}]{{/gh_pages}}
-{{/stripNewLines}}
+
+ {{#travis_ci}}[![TravisCI Build Status][badge_travis_ci]][build_travis_ci]{{/travis_ci}}
+
+ {{#github_actions}}[![GitHub Actions Build Status][badge__github_actions]][activity_log__github_actions]{{/github_actions}}
+
+ {{#license}}[![License][badge__license]][branch__current__license]{{/license}}
+{{/stripNewLines}}{{/trimTrailingSpaces}}
 {{/include_shields_io}}
 
 
 
-------
+---
 
 
 - [:arrow_up: Top of Document][heading__top]
@@ -38,20 +44,40 @@
 {{#quick_start.is_submodule}}
   - [:memo: Edit Your ReadMe File][heading__your_readme_file]
   - [:floppy_disk: Commit and Push][heading__commit_and_push]
-{{/quick_start.is_submodule}}
   - [&#x1F9F0; Usage][heading__usage]
+{{/quick_start.is_submodule}}
+{{^quick_start.is_submodule}}
+- [&#x1F9F0; Usage][heading__usage]
+{{/quick_start.is_submodule}}
 {{/quick_start}}
 
 {{#include_notes}}
 - [&#x1F5D2; Notes][heading__notes]
 {{/include_notes}}
 
+{{#contributing}}
+- [:chart_with_upwards_trend: Contributing][heading__contributing]
+
+{{#contributing.include_forking}}
+  - [:trident: Forking][heading__forking]
+{{/contributing.include_forking}}
+{{#sponsor}}
+  - [:currency_exchange: Sponsor][heading__sponsor]
+{{/sponsor}}
+{{/contributing}}
+
+{{^contributing}}
+{{#sponsor}}
+- [:currency_exchange: Sponsor][heading__sponsor]
+{{/sponsor}}
+{{/contributing}}
+
 - [:card_index: Attribution][heading__attribution]
 
 - [:balance_scale: Licensing][heading__license]
 
 
-------
+---
 
 
 
@@ -71,6 +97,10 @@
 {{> utilizes_github_actions.md}}
 {{/requirements.utilizes_github_actions}}
 {{!}}
+{{#requirements.utilizes_jekyll}}
+{{> utilizes_jekyll.md}}
+{{/requirements.utilizes_jekyll}}
+{{!}}
 {{#requirements.utilizes_npm}}
 {{> utilizes_npm.md}}
 {{/requirements.utilizes_npm}}
@@ -83,12 +113,16 @@
 {{> utilizes_submodules.md}}
 {{/requirements.utilizes_submodules}}
 {{!}}
-{{#requirements.utilizes_jekyll}}
-{{> utilizes_jekyll.md}}
-{{/requirements.utilizes_jekyll}}
+{{#requirements.utilizes_rust}}
+{{> utilizes_rust.md}}
+{{/requirements.utilizes_rust}}
+{{!}}
+{{#requirements.utilizes_vim}}
+{{> utilizes_vim.md}}
+{{/requirements.utilizes_vim}}
 
 
-___
+______
 {{/requirements}}
 
 
@@ -100,62 +134,150 @@ ___
 
 
 {{^quick_start.is_submodule}}
-{{! if quick_start.is_github_action != && requirements.utilizes_submodules != true }}
+{{! if quick_start.is_github_action != true
+  && requirements.utilizes_submodules != true
+  && requirements.utilizes_rust != true }}
 {{^quick_start.is_github_action}}
 {{^requirements.utilizes_submodules}}
+{{^requirements.utilizes_rust}}
 {{> clone.md}}
 
-------
+---
+{{/requirements.utilizes_rust}}
 {{/requirements.utilizes_submodules}}
 {{/quick_start.is_github_action}}
 {{/quick_start.is_submodule}}
+{{! if quick_start.is_rust_library == true }}
+{{#quick_start.is_rust_library}}
+{{> is_rust_library.md }}
+{{/quick_start.is_rust_library}}
 {{! if quick_start.is_submodule == true }}
 {{#quick_start.is_submodule}}
 {{> is_submodule.md}}
 
-------
+---
 {{/quick_start.is_submodule}}
+{{! if quick_start.is_vim_package == true }}
+{{#quick_start.is_vim_package}}
+{{> is_vim_package.md }}
+{{/quick_start.is_vim_package}}
+{{! if quick_start.is_vim_plugin == true }}
+{{#quick_start.is_vim_plugin}}
+{{> is_vim_plugin.md }}
+{{/quick_start.is_vim_plugin}}
 
 
+{{#quick_start.is_submodule}}
 ### Usage
 [heading__usage]:
   #usage
-  "&#x1F9F0;"
+  "&#x1F9F0; How to utilize this repository"
+{{/quick_start.is_submodule}}
+{{^quick_start.is_submodule}}
+## Usage
+[heading__usage]:
+  #usage
+  "&#x1F9F0; How to utilize this repository"
+{{/quick_start.is_submodule}}
 
 
 {{! if quick_start.is_awk_script == true }}
 {{#quick_start.is_awk_script}}
 {{> is_awk_script.md}}
 
-------
+---
 {{/quick_start.is_awk_script}}
 {{! if quick_start.is_github_action == true }}
 {{#quick_start.is_github_action}}
 {{> is_github_action.md}}
 
-------
+---
 {{/quick_start.is_github_action}}
 {{! if quick_start.is_node_package == true }}
 {{#quick_start.is_node_package}}
 {{> is_node_package.md}}
 
-------
+---
 {{/quick_start.is_node_package}}
 {{! if quick_start.is_python_package == true }}
 {{#quick_start.is_python_package}}
 {{> is_python_package.md}}
 {{/quick_start.is_python_package}}
 
-___
+---
+{{! if quick_start.is_solidity_library == true }}
+{{#quick_start.is_solidity_library}}
+{{> is_solidity_library.md}}
+{{/quick_start.is_solidity_library}}
+
+______
 {{/quick_start}}
 
 
 {{#include_notes}}
 {{> notes.md}}
 
-___
+______
 {{/include_notes}}
 
+
+{{! if contributing is _truthy_ }}
+{{#contributing}}
+## Contributing
+[heading__contributing]:
+  #contributing
+  "&#x1F4C8; Options for contributing to {{ repository }} and {{ organization }}"
+
+
+Options for contributing to {{ repository }} and {{ organization }}
+
+
+{{#contributing.include_forking}}
+---
+
+
+### Forking
+[heading__forking]:
+  #forking
+  "&#x1F531; Tips for forking {{ repository }}"
+
+
+{{> forking.md}}
+{{/contributing.include_forking}}
+
+{{#sponsor}}
+---
+
+
+### Sponsor
+  [heading__sponsor]:
+  #sponsor
+  "&#x1F4B1; Methods for financially supporting {{ organization }} that maintains {{ repository }}"
+
+
+{{> sponsor_message.md}}
+{{/sponsor}}
+
+______
+{{/contributing}}
+
+{{! if contributing is _falsy_ && sponsor is _truthy_ }}
+{{^contributing}}
+{{#sponsor}}
+______
+
+
+## Sponsor
+  [heading__sponsor]:
+  #sponsor
+  "&#x1F4B1; Methods for financially supporting {{ organization }} that maintains {{ repository }}"
+
+
+{{> sponsor_message.md}}
+{{/sponsor}}
+
+______
+{{/contributing}}
 
 ## Attribution
 [heading__attribution]:
@@ -166,7 +288,7 @@ ___
 - [GitHub -- `github-utilities/make-readme`](https://github.com/github-utilities/make-readme)
 
 
-___
+______
 
 
 {{! if license is _truthy_ }}
@@ -207,6 +329,8 @@ For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
   /LICENSE
   "&#x2696; Full length version of {{ license }} License"
 
+[badge__license]:
+  https://img.shields.io/github/license/{{ organization }}/{{ repository }}
 {{/license}}
 
 [badge__commits__{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__{{ default_branch }}]:
@@ -248,7 +372,7 @@ For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
 
 {{#include_notes}}
 [{{#stripForHeading}}{{ repository }}{{/stripForHeading}}__fork_it]:
-  https://github.com/{{ organization }}/{{ repository }}/
+  https://github.com/{{ organization }}/{{ repository }}/fork
   "&#x1F531; Fork it!"
 {{/include_notes}}
 
@@ -285,3 +409,65 @@ For further details contact {{# toTitleCase }}{{ author }}{{/ toTitleCase }}.
   https://docs.github.com/en/github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll
   "GitHub Pages documentation on Jekyll setup"
 {{/requirements.utilizes_jekyll}}
+
+
+{{#requirements.utilizes_vim}}
+[vim__home]:
+  https://www.vim.org
+  "Home page for the Vim text editor"
+
+[vim__github]:
+  https://github.com/vim/vim
+  "Source code for Vim on GitHub"
+{{/requirements.utilizes_vim}}
+
+{{#requirements.utilizes_rust}}
+[rust_home]:
+  https://www.rust-lang.org/
+  "Home page for Rust language"
+
+[rust_github]:
+  https://github.com/rust-lang
+  "Source code for Rust on GitHub"
+{{/requirements.utilizes_rust}}
+
+{{#sponsor}}
+{{#sponsor.liberapay}}
+{{> link_liberapay.md}}
+{{/sponsor.liberapay}}
+{{/sponsor}}
+
+
+{{#travis_ci}}
+[badge_travis_ci]:
+  https://travis-ci.com/{{ organization }}/{{ repository }}.svg?branch={{ default_branch }}
+
+[build_travis_ci]:
+  https://travis-ci.com/github/{{ organization }}/{{ repository }}
+{{/travis_ci}}
+
+{{#github_actions}}
+[badge__github_actions]:
+  https://github.com/{{ organization }}/{{ repository }}/actions/workflows/{{ github_actions.workflow }}.yaml/badge.svg?branch={{ default_branch }}
+
+{{#github_actions.environment}}
+[activity_log__github_actions]:
+  https://github.com/{{ organization }}/{{ repository }}/deployments/activity_log?environment={{ github_actions.environment }}
+{{/github_actions.environment}}
+{{^github_actions.environment}}
+[activity_log__github_actions]:
+  https://github.com/{{ organization }}/{{ repository }}/deployments/activity_log
+{{/github_actions.environment}}
+{{/github_actions}}
+
+{{#quick_start}}
+{{! if quick_start.is_solidity_library == true }}
+{{#quick_start.is_solidity_library}}
+[truffle__package_management_via_npm]:
+  https://www.trufflesuite.com/docs/truffle/getting-started/package-management-via-npm
+  "Documentation on how to install, import, and interact with Solidity packages"
+{{/quick_start.is_solidity_library}}
+{{/quick_start}}
+{{!
+  vim: filetype=mustache
+}}
