@@ -21,6 +21,7 @@
   "quick_start": {
     "is_awk_script": false,
     "is_github_action": false,
+    "is_nix_package": false,
     "is_node_package": false,
     "is_python_package": false,
     "is_rust_library": false,
@@ -32,6 +33,7 @@
   },
   "requirements": {
     "utilizes_awk": false,
+    "utilizes_nix": false,
     "utilizes_npm": false,
     "utilizes_github_actions": false,
     "utilizes_jekyll": false,
@@ -55,6 +57,7 @@
         ".mustache/partials/readme/contributing/forking.md.mst",
         ".mustache/partials/readme/quick_start/clone.md.mst",
         ".mustache/partials/readme/quick_start/is_awk_script.md.mst",
+        ".mustache/partials/readme/quick_start/is_nix_package.md.mst",
         ".mustache/partials/readme/quick_start/is_node_package.md.mst",
         ".mustache/partials/readme/quick_start/is_github_action.md.mst",
         ".mustache/partials/readme/quick_start/is_python_package.md.mst",
@@ -67,6 +70,7 @@
         ".mustache/partials/readme/requirements/utilizes_awk.md.mst",
         ".mustache/partials/readme/requirements/utilizes_github_actions.md.mst",
         ".mustache/partials/readme/requirements/utilizes_jekyll.md.mst",
+        ".mustache/partials/readme/requirements/utilizes_nix.md.mst",
         ".mustache/partials/readme/requirements/utilizes_npm.md.mst",
         ".mustache/partials/readme/requirements/utilizes_pip.md.mst",
         ".mustache/partials/readme/requirements/utilizes_rust.md.mst",

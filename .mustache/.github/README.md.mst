@@ -101,6 +101,10 @@
 {{> utilizes_jekyll.md}}
 {{/requirements.utilizes_jekyll}}
 {{!}}
+{{#requirements.utilizes_nix}}
+{{> utilizes_nix.md}}
+{{/requirements.utilizes_nix}}
+{{!}}
 {{#requirements.utilizes_npm}}
 {{> utilizes_npm.md}}
 {{/requirements.utilizes_npm}}
@@ -193,6 +197,12 @@ ______
 
 ---
 {{/quick_start.is_github_action}}
+{{! if quick_start.is_nix_package == true }}
+{{#quick_start.is_nix_package}}
+{{> is_nix_package.md}}
+
+---
+{{/quick_start.is_nix_package}}
 {{! if quick_start.is_node_package == true }}
 {{#quick_start.is_node_package}}
 {{> is_node_package.md}}

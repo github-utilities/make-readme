@@ -1,0 +1,36 @@
+This repository may be installed, and managed, via Nix Flake
+
+> `flake.nix` **(example)**
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOs/nixpkgs-24.05";
+    {{ organization }}.url = "github:{{ organization }}/{{ repository }}-{{ default_branch }}";
+  };
+  outputs = { self, nixpkgs, {{ organization }} }@attrs: {
+    nixosConfigurations."your-host-name" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = attrs;
+      modules = [ ./configuration.nix ];
+    };
+  };
+}
+```
+
+> `configuration.nix` **(snipet)**
+
+```nix
+{ config, pkgs, nixpkgs, {{ organization }}, ... }:
+
+{
+  # Do stuff with {{ organization }}.{{ repository }} name-space
+}
+```
+
+Then rebuild as usual;
+
+```bash
+sudo nixos-rebuild switch --flake '.#'
+```
+
